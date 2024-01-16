@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule} from '@angular/material/sort';
+import { MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,25 +12,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
-import { ShowUserComponent } from './show-user/show-user.component';
 import { GetUsersComponent } from './get-users/get-users.component';
 import { HeaderComponent } from './header/header.component';
-
+import { AddUserComponent } from './add-user/add-user.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ViewComponent } from './view/view.component'
 @NgModule({
   declarations: [
     AppComponent,
     UpdateUserComponent,
     DeleteUserComponent,
-    ShowUserComponent,
     GetUsersComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddUserComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,MatTableModule,MatPaginatorModule,MatFormFieldModule,MatInputModule,MatSortModule,
-    HttpClientModule
+    HttpClientModule,FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

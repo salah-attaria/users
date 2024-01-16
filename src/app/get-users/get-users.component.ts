@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild ,AfterViewInit} from '@angular/core';
 import { UserdataService} from '../services/userdata.service'
+import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 @Component({
   selector: 'app-get-users',
   templateUrl: './get-users.component.html',
@@ -7,15 +10,29 @@ import { UserdataService} from '../services/userdata.service'
 })
 export class GetUsersComponent implements OnInit{
   users:any;
+  items:any;
+  userDataSource!: MatTableDataSource<any>
 constructor(private userData:UserdataService){
-  this.userData.users().subscribe((data)=>{
+
+}
+displayedColoumns:string[]=['id','name','email','phone','department','action']
+@ViewChild(MatPaginator) paginator!:MatPaginator
+@ViewChild(MatSort)sort!: MatSort
+ngOnInit(): void {
+  this.userData.users().subscribe((data:any)=>{
     console.log(data)
-    this.users=data
+    this.userDataSource = new MatTableDataSource(data?.users)
+    if(this.userDataSource){
+      this.userDataSource.paginator = this.paginator
+      this.userDataSource.sort = this.sort;
+    }
+
+  
   })
 }
-displayedcoloumns:string[]=['full_name','email','phone','department','password','university','gender,username']
-
-ngOnInit(): void {
-  
-}
+AfterViewInit(){
+  if(this.userDataSource){
+    this.userDataSource.paginator = this.paginator
+    this.userDataSource.sort = this.sort;
+  }}
 }

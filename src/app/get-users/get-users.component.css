@@ -1,0 +1,37 @@
+th,td,mat-paginator{
+    color: #707687 !important;
+    font-size:10pt ;
+}
+.visibility{
+    color:#7EC8D7;
+}
+.edit{
+    color: #FF9800;
+}
+.edit:hover{
+    color:#B8CDE1
+}
+.delt{
+    color:#F44336
+}
+.delt:hover{
+    color:#B8CDE1
+}
+span{
+    font-size: 14pt;
+
+}
+.page{
+    font-size: 8pt;
+
+}
+.my-btn{
+    background-color: #0A6C97;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    margin-left: 40px;
+}
+.section-1{
+margin: 80px;
+}

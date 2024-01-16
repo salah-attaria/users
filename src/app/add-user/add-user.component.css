@@ -1,10 +1,10 @@
-.my-btn{
+.my-cont{
+width: 60%;
+}
+.y-btn,a{
     background-color: #0A6C97;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
-    margin-left: 40px;
-}
-.section-1{
-margin: 80px;
-}
+    margin-left: 0;
+    text-decoration: none;}

@@ -1,17 +1,17 @@
 
 <div class="container my-cont">
-    <form [formGroup]="userDataForm" class=" border border-light p-5">
+    <form [formGroup]="userData" class=" border border-light p-5">
         <p class="h4 mb-4 text-center">Add Customer</p>
     <a routerLink="/"><button class="btn y-btn my-3">Customers List</button></a>
 
         <div class="form-row mb-4">
             <div class="col">
                 <!-- First name -->
-                <input type="text"  id="defaultRegisterFormFirstName" name="firstName" formControlName="s" class="form-control mb-4" placeholder="First name" value="">
+                <input type="text"  id="defaultRegisterFormFirstName" name="firstName" formControlName="firstName" class="form-control mb-4" placeholder="First name">
             </div>
             <div class="col">
                 <!-- Last name -->
-                <input type="text" id="defaultRegisterFormLastName" name="lastName" formControlName="lastName" class="form-control mb-4" placeholder="Last name">
+                <input type="text" id="defaultRegisterFormLastName" name="lastName" formControlName="lasttName" class="form-control mb-4" placeholder="Last name">
             </div>
         </div>
         <!-- E-mail -->
@@ -20,9 +20,9 @@
         <!-- Password -->
 
         <div class="col">
-            <label for="gender"  class="me-4">Gender</label>
-            <input type="radio" formControlName="gender" class=" mb-4"    name="gender"  value="male">Male
-            <input type="radio" formControlName="gender" class=" mb-4"   name="gender" value="female">Female
+            <label for="gender" formControlName="gender" class="me-4">Gender</label>
+            <input type="radio" class=" mb-4"    name="gender"  value="male">Male
+            <input type="radio" class=" mb-4"   name="gender" value="female">Female
         </div>
         <div class="col">
             <input type="department" name="department" formControlName="department" class="form-control mb-4"  placeholder="Department">
