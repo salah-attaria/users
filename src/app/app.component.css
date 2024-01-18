@@ -8,3 +8,23 @@
 .section-1{
 margin: 80px;
 }
+form{
+    width: 600px;
+    border: 2px solid #DBDBDB;
+    border-radius: 3px;
+    padding: 10px;
+    
+}
+.inputField{
+    width: 99%;
+    height: 70PX;
+    font-size: 10pt;
+    padding: 0;
+}
+.add-btn{
+    width: 200px;
+    margin-left: 180px;
+}
+.gender-color{
+    color:#787878;
+}

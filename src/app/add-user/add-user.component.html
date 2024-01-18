@@ -1,46 +1,73 @@
 
-<div class="container my-cont">
-    <form [formGroup]="userData" class=" border border-light p-5">
-        <p class="h4 mb-4 text-center">Add Customer</p>
-    <a routerLink="/"><button class="btn y-btn my-3">Customers List</button></a>
+<!-- <router-outlet></router-outlet> -->
+<div class="container">
 
-        <div class="form-row mb-4">
-            <div class="col">
-                <!-- First name -->
-                <input type="text"  id="defaultRegisterFormFirstName" name="firstName" formControlName="firstName" class="form-control mb-4" placeholder="First name">
-            </div>
-            <div class="col">
-                <!-- Last name -->
-                <input type="text" id="defaultRegisterFormLastName" name="lastName" formControlName="lasttName" class="form-control mb-4" placeholder="Last name">
-            </div>
-        </div>
-        <!-- E-mail -->
-        <input type="email" name="email" class="form-control mb-4" formControlName="email" placeholder="E-mail">
-
-        <!-- Password -->
-
-        <div class="col">
-            <label for="gender" formControlName="gender" class="me-4">Gender</label>
-            <input type="radio" class=" mb-4"    name="gender"  value="male">Male
-            <input type="radio" class=" mb-4"   name="gender" value="female">Female
-        </div>
-        <div class="col">
-            <input type="department" name="department" formControlName="department" class="form-control mb-4"  placeholder="Department">
-            <input type="university" name="university" formControlName="university" class="form-control mb-4"  placeholder="University">
-        </div>
-        <div class="col">
-            <!-- Phone number -->
-            <input type="text" name="phone" id="defaultRegisterPhonePassword" formControlName="phone" class="form-control mb-4" placeholder="Phone number"
-                >
-        </div>
-        <div class="col">
-            <input type="password" name="password" id=""  class="form-control mb-4" formControlName="password" placeholder="Password">
-        </div>
-        <!-- Sign up button -->
-        <button mdbBtn (click)="getUser()" color="info" block="true" class="btn y-btn my-4" type="submit"><a routerLink="/">Register New Customer</a></button>
-
-        <hr>
+<form [formGroup]="userData">
+    <h2 class="text-center">Add User Form</h2>
+   <a routerLink="/"> <button mat-flat-button color="primary" class="add-btn my-4">Customer List</button></a>
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" placeholder="Enter Your First Name">
+          <mat-hint *ngIf="userData.hasError('pattern','firstName')">Please enter Alphabets only</mat-hint>
+          <mat-hint *ngIf="userData.hasError('required','firstName')">First Name is required!</mat-hint>
+        </mat-form-field>
+      
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lasttName" placeholder="Enter Your Last Name">
+          <mat-hint *ngIf="userData.hasError('pattern','lastName')">Please enter Alphabets only</mat-hint>
+          <mat-hint *ngIf="userData.hasError('required','lastName')">First Name is required!</mat-hint>
+        </mat-form-field>
+      
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>Email</mat-label>
+         
+          <input matInput formControlName="email" placeholder="Enter Your email">
+          <mat-hint *ngIf="userData.hasError('pattern','email')">Please enter valid email address.</mat-hint>
        
+        </mat-form-field>
+      
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" placeholder="Enter Your phone number">
+          <mat-hint *ngIf="userData.hasError('required','phone')">Must be of pattern: '+12 285 771 1911' </mat-hint>
+       
+        </mat-form-field>
+      
+      <mat-radio-group aria-label="Select Gender">
+        <mat-label formControlName="gender" class="gender-color">Gender</mat-label>
+        <mat-radio-button formControlName="gender" class="gender-color" value="male"><span class="gender-color ">Male</span> </mat-radio-button>
+        <mat-radio-button formControlName="gender" class="gender-color" value="female"><span class="gender-color ">Female</span></mat-radio-button>
+      </mat-radio-group>
+      
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>University</mat-label>
+          <input matInput formControlName="university" placeholder="Enter Your University Name">
+          <mat-hint *ngIf="userData.hasError('required','university')">This field is required!</mat-hint>
+       
+        </mat-form-field>
+      
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>Department</mat-label>
+          <input matInput  formControlName="department" placeholder="Enter Your Department">
+          <mat-hint *ngIf="userData.hasError('required','department')">This field is required!</mat-hint>
+        
+        </mat-form-field>
+      
+      
+    
+        <mat-form-field appearance="fill" class="inputField">
+          <mat-label>Password</mat-label>
+          <input matInput  type="password" formControlName="password" placeholder="Enter Your Password">
+          <mat-hint *ngIf="userData.hasError('required','password')">This field is required!</mat-hint>
+       
+        </mat-form-field>
+      
+        <button (click)="getUser()" mat-flat-button color="primary" class="add-btn"> Add Customer</button>
     </form>
-    <!-- Default form register -->
-</div>

@@ -30,6 +30,11 @@ ngOnInit(): void {
   
   })
 }
+deleteUserData(id:number){
+  this.userData.deleteUser(id).subscribe((result:any)=>{
+    console.log(result)
+  })
+}
 AfterViewInit(){
   if(this.userDataSource){
     this.userDataSource.paginator = this.paginator

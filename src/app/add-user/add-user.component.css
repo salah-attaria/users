@@ -1,4 +1,4 @@
-.my-cont{
+/* .my-cont{
 width: 60%;
 }
 .y-btn,a{
@@ -7,4 +7,35 @@ width: 60%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
     margin-left: 0;
-    text-decoration: none;}
+    text-decoration: none;} */
+    .my-btn{
+        background-color: #0A6C97;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        margin-left: 40px;
+    }
+    .section-1{
+    margin: 80px;
+    }
+    form{
+        width: 600px;
+        border: 2px solid #DBDBDB;
+        border-radius: 3px;
+        padding: 10px;
+        margin-left:  30%;
+        margin-top: 5%;
+    }
+    .inputField{
+        width: 99%;
+        height: 70PX;
+        font-size: 10pt;
+        padding: 0;
+    }
+    .add-btn{
+        width: 200px;
+        margin-left: 180px;
+    }
+    .gender-color{
+        color:#787878;
+    }

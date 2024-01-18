@@ -19,7 +19,9 @@ url="https://dummyjson.com/users/"
   updateUser(id:number,body:any){
     return this.http.put('http://localhost:5000/user/2',id,body);
   }
-  deleteUser(id:number){}
+  deleteUser(id:number){
+    return this.http.delete(this.url+id)
+  }
 
   }
   

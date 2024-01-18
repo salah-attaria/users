@@ -1,0 +1,64 @@
+
+<div class="container my-cont">
+    <form [formGroup]="updateDataForm" class=" border border-light p-5">
+        <p class="h4 mb-4 text-center">Update Customer</p>
+    <a routerLink="/"><button class="btn y-btn my-3">Customers List</button></a>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+            <input type="text"    formControlName="firstName" class="form-control mb-4" placeholder="First name">
+            <small style="color: red;" *ngIf="updateDataForm.hasError('required','firstName')" >First Name is required!</small>
+            <small style="color: red;" *ngIf="updateDataForm.hasError('pattern','firstName')" >Please enter Alphabets only</small>
+
+        </div>
+        <div class="col">
+            <!-- Last name -->
+            <input type="text" id="defaultRegisterFormLastName" name="lastName" formControlName="lastName" class="form-control mb-4" placeholder="Last name">
+            <small style="color: red;" *ngIf="updateDataForm.hasError('required','lastName')" >First Name is required!</small>
+            <small style="color: red;" *ngIf="updateDataForm.hasError('pattern','lastName')" >Please enter Alphabets only</small>
+        </div>
+    </div>
+    <!-- E-mail -->
+    <input type="email" name="email" class="form-control mb-4" formControlName="email" placeholder="E-mail">
+    <small style="color: red;" *ngIf="updateDataForm.hasError('required','email')" >Email is required!</small>
+    <small style="color: red;" *ngIf="updateDataForm.hasError('pattern','email')" >invalid pattern!</small>
+
+    <!-- Password -->
+
+    <div class="col">
+        <label for="gender" formControlName="gender" class="me-4">Gender</label>
+        <small style="color: red;" *ngIf="updateDataForm.hasError('required','gender')" >This Field Is Required!</small>
+
+        <input type="radio" class=" mb-4"    formControlName="gender"  value="male">Male
+        <input type="radio" class=" mb-4"   formControlName="gender" value="female">Female
+    </div>
+    <div class="col">
+       
+        <input type="department" name="department" formControlName="department" class="form-control mb-4"  placeholder="Department">
+        <small style="color: red;" *ngIf="updateDataForm.hasError('required','department')" >This Field Is Required!</small>
+       
+        <input type="university" name="university" formControlName="university" class="form-control mb-4"  placeholder="University">
+        <small style="color: red;" *ngIf="updateDataForm.hasError('required','university')" >This Field Is Required!</small>
+    
+    </div>
+    <div class="col">
+        <!-- Phone number -->
+        <input type="text" name="phone" id="defaultRegisterPhonePassword" formControlName="phone" class="form-control mb-4" placeholder="Phone number">
+        <small style="color: red;" *ngIf="updateDataForm.hasError('pattern','phone')" > Must be like '+12 285 771 1911' </small>
+
+    </div>
+    <div class="col">
+        <input type="password" name="password" id=""  class="form-control mb-4" formControlName="password" placeholder="Password">
+        <small style="color: red;" *ngIf="updateDataForm.hasError('required','password')" >Password is required!</small>
+        <small style="color: red;" *ngIf="updateDataForm.hasError('pattern','password')" >Atleast 8 characters!</small>
+    
+    </div>
+        <!-- Sign up button -->
+        <button mdbBtn (click)="updateDataUser()" color="info" block="true" class="btn y-btn my-4" type="submit"><a routerLink="/">Update Customer</a></button>
+
+        <hr>
+       
+    </form>
+    <!-- Default form register -->
+</div>
