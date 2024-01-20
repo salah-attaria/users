@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component , OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { UserdataService } from '../services/userdata.service'
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -6,12 +6,13 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 import { AuthService } from '../services/auth.service';
+  
 @Component({
-  selector: 'app-get-users',
-  templateUrl: './get-users.component.html',
-  styleUrls: ['./get-users.component.css']
+  selector: 'app-show-users',
+  templateUrl: './show-users.component.html',
+  styleUrls: ['./show-users.component.css']
 })
-export class GetUsersComponent implements OnInit {
+export class ShowUsersComponent implements OnInit {
   users: any;
   items: any;
   userDataSource!: MatTableDataSource<any>
@@ -34,23 +35,7 @@ export class GetUsersComponent implements OnInit {
 
     })
   }
-  deleteUserData(id: number) {
-    
-    const dialogRef = this.dialog.open(DeleteUserComponent, {
-      data: id,
-      height: '200px',
-      width: '400px'
-    })
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      if (result == 'delete') {
-        this.userData.deleteUser(id).subscribe((resp: any) => {
-          console.log(resp)
-        })
-      }
-    })
-
-  }
+ 
   AfterViewInit() {
     if (this.userDataSource) {
       this.userDataSource.paginator = this.paginator

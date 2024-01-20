@@ -1,74 +1,79 @@
-
 <!-- <router-outlet></router-outlet> -->
 <div class="container">
 
-    <form [formGroup]="updateDataForm">
-        <h2 class="text-center">Update Customer</h2>
-       <a routerLink="/"> <button mat-flat-button color="primary" class="add-btn my-4">Customer List</button></a>
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>First Name</mat-label>
-              <input matInput formControlName="firstName" placeholder="Enter Your First Name">
-              <mat-hint *ngIf="updateDataForm.hasError('pattern','firstName')">Please enter Alphabets only</mat-hint>
-              <mat-hint *ngIf="updateDataForm.hasError('required','firstName')">First Name is required!</mat-hint>
-            </mat-form-field>
-          
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>Last Name</mat-label>
-              <input matInput formControlName="lastName" placeholder="Enter Your Last Name">
-              <mat-hint *ngIf="updateDataForm.hasError('pattern','lastName')">Please enter Alphabets only</mat-hint>
-              <mat-hint *ngIf="updateDataForm.hasError('required','lastName')">First Name is required!</mat-hint>
-            </mat-form-field>
-          
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>Email</mat-label>
-             
-              <input matInput formControlName="email" placeholder="Enter Your email">
-              <mat-hint *ngIf="updateDataForm.hasError('pattern','email')">Please enter valid email address.</mat-hint>
-           
-            </mat-form-field>
-          
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>Phone</mat-label>
-              <input matInput formControlName="phone" placeholder="Enter Your phone number">
-              <mat-hint *ngIf="updateDataForm.hasError('required','phone')">Must be of pattern: '+12 285 771 1911' </mat-hint>
-           
-            </mat-form-field>
-          
-          <mat-radio-group aria-label="Select Gender">
-            <mat-label formControlName="gender" class="gender-color">Gender</mat-label>
-            <mat-radio-button formControlName="gender" class="gender-color" value="male"><span class="gender-color ">Male</span> </mat-radio-button>
-            <mat-radio-button formControlName="gender" class="gender-color" value="female"><span class="gender-color ">Female</span></mat-radio-button>
-          </mat-radio-group>
-          
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>University</mat-label>
-              <input matInput formControlName="university" placeholder="Enter Your University Name">
-              <mat-hint *ngIf="updateDataForm.hasError('required','university')">This field is required!</mat-hint>
-           
-            </mat-form-field>
-          
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>Department</mat-label>
-              <input matInput  formControlName="department" placeholder="Enter Your Department">
-              <mat-hint *ngIf="updateDataForm.hasError('required','department')">This field is required!</mat-hint>
-            
-            </mat-form-field>
-          
-          
-        
-            <mat-form-field appearance="fill" class="inputField">
-              <mat-label>Password</mat-label>
-              <input matInput  type="password" formControlName="password" placeholder="Enter Your Password">
-              <mat-hint *ngIf="updateDataForm.hasError('required','password')">This field is required!</mat-hint>
-           
-            </mat-form-field>
-          
-            <button (click)="updateDataUser()" mat-flat-button color="primary" class="add-btn"> Update Customer</button>
-        </form>
-    
+  <form [formGroup]="updateDataForm">
+    <h2 class="text-center">Update Customer</h2>
+    <a routerLink="/get-user"> <button mat-flat-button color="primary" class="add-btn my-4">Customer List</button></a>
+<router-outlet></router-outlet>
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName">
+      <mat-error *ngIf="updateDataForm.hasError('pattern','firstName')">Please enter Alphabets only</mat-error>
+      <mat-error *ngIf="updateDataForm.hasError('required','firstName')">First Name is required!</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-error *ngIf="updateDataForm.hasError('pattern','lastName')">Please enter Alphabets only</mat-error>
+      <mat-error *ngIf="updateDataForm.hasError('required','lastName')">First Name is required!</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>Email</mat-label>
+
+      <input matInput formControlName="email">
+      <mat-error *ngIf="updateDataForm.hasError('required','email')">Email is required.</mat-error>
+
+      <mat-error *ngIf="updateDataForm.hasError('pattern','email')">Please enter valid  email address.</mat-error>
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone">
+      <mat-error *ngIf="updateDataForm.hasError('pattern','phone')">Must be of pattern: '+12 285 771 1911'</mat-error>
+
+      <mat-error *ngIf="updateDataForm.hasError('required','phone')">This field is required. </mat-error>
+
+    </mat-form-field>
+
+    <mat-radio-group formControlName="gender" aria-label="Select Gender">
+      <mat-label class="gender-color">Gender</mat-label>
+      <mat-radio-button class="gender-color" value="male"><span class="gender-color ">Male</span> </mat-radio-button>
+      <mat-radio-button class="gender-color" value="female"><span class="gender-color ">Female</span></mat-radio-button>
+      <mat-error *ngIf="updateDataForm.hasError('required','gender')">This field is required!</mat-error>
+
+    </mat-radio-group>
+
+
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>University</mat-label>
+      <input matInput formControlName="university">
+      <mat-error *ngIf="updateDataForm.hasError('required','university')">This field is required!</mat-error>
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department">
+      <mat-error *ngIf="updateDataForm.hasError('required','department')">This field is required!</mat-error>
+
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="fill" class="inputField">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="updateDataForm.hasError('required','password')">This field is required!</mat-error>
+
+    </mat-form-field>
+
+    <button (click)="updateDataUser()" mat-flat-button color="primary" class="add-btn">Update
+        Customer</button>
+  </form>

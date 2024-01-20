@@ -31,7 +31,7 @@ export class UpdateUserComponent implements OnInit {
           firstName: new FormControl(resp.firstName,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
           lastName: new FormControl(resp.lastName,[Validators.required,Validators.pattern('[a-zA-Z]*')]),
           email: new FormControl(resp.email,[Validators.required,Validators.pattern( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ )]),
-          gender: new FormControl(resp.gender),
+          gender: new FormControl(resp.gender,[Validators.required]),
           department: new FormControl(resp.company.department,[Validators.required]),
           university: new FormControl(resp.university,[Validators.required]),
           phone: new FormControl(resp.phone,[Validators.required,Validators.pattern(/^\+\d{1,3}\s\d{3}\s\d{3}\s\d{4}$/)]),
