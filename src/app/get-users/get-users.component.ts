@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 import { AuthService } from '../services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-get-users',
   templateUrl: './get-users.component.html',
@@ -14,14 +15,18 @@ import { AuthService } from '../services/auth.service';
 export class GetUsersComponent implements OnInit {
   users: any;
   items: any;
-  userDataSource!: MatTableDataSource<any>
-  constructor(private userData: UserdataService, public dialog: MatDialog,private auth:AuthService) {
+  userDataSource!: MatTableDataSource<any>;
+  userToken:any;
+  constructor(private userData: UserdataService,private router:Router,private activatedRoute: ActivatedRoute, public dialog: MatDialog,private auth:AuthService) {
 
   }
   displayedColoumns: string[] = ['id', 'name', 'email', 'phone', 'department', 'action']
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
   ngOnInit(): void {
+   this.userToken = this.auth.getToken();
+    this.userToken=atob(this.userToken.split('.')[1]);
+    this.userToken=JSON.parse(this.userToken)
     this.userData.users().subscribe((data: any) => {
       console.log(data)
       this.userDataSource = new MatTableDataSource(data?.users)
@@ -34,8 +39,18 @@ export class GetUsersComponent implements OnInit {
 
     })
   }
+  
   deleteUserData(id: number) {
+    this.userToken = this.auth.getToken();
+    this.userToken=atob(this.userToken.split('.')[1]);
+    this.userToken=JSON.parse(this.userToken);
+    this.activatedRoute.params.subscribe((param: any) => {
+      param['id'];
     
+    if( this.userToken.role == 'user' && this.userToken.id != param['id']){
+      this.router.navigateByUrl('get-user')
+    }
+    else{
     const dialogRef = this.dialog.open(DeleteUserComponent, {
       data: id,
       height: '200px',
@@ -50,7 +65,7 @@ export class GetUsersComponent implements OnInit {
       }
     })
 
-  }
+  }})}
   AfterViewInit() {
     if (this.userDataSource) {
       this.userDataSource.paginator = this.paginator

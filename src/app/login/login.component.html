@@ -5,13 +5,13 @@
       <mat-label>Email</mat-label>
       <input matInput formControlName="email"  >
       <!-- <mat-error *ngIf="userData.hasError('pattern','firstName')">Please enter Alphabets only</mat-error> -->
-      <!-- <mat-error *ngIf="userData.hasError('required','firstName')">First Name is required!</mat-error> -->
+      <mat-error *ngIf="userData.hasError('required','email')">Email is required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" class="inputField my-1">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password"  >
+        <input type="password" matInput formControlName="password"  >
         <!-- <mat-error *ngIf="userData.hasError('pattern','firstName')">Please enter Alphabets only</mat-error> -->
-        <!-- <mat-error *ngIf="userData.hasError('required','firstName')">First Name is required!</mat-error> -->
+        <mat-error *ngIf="userData.hasError('required','password')">Password is required!</mat-error>
       </mat-form-field>
 
     <button (click)="loginUser()" mat-flat-button color="primary" class="add-btn"> Login

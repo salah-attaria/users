@@ -1,0 +1,4 @@
+export const tokens = {
+    admin:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIiwiaWQiOjEsImlhdCI6MTUxNjIzOTAyMn0.WC2ticTOAYy_7bC8_Dtw_tFFao8WMMjtLpLU_S8B-u0',
+    user: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwicm9sZSI6InVzZXIiLCJpZCI6MiwiaWF0IjoxNTE2MjM5MDIyfQ.tdReF-sWhcfgutWmx1dstEtmbB7x6xZw2cPsw1j5Vf4'
+}

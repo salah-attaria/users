@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
+import { tokens } from '../token-data';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,10 @@ export class AuthService {
 
   constructor(private router: Router) { }
   setToken(token: any) {
-    let setToken = JSON.stringify(token);
-    localStorage.setItem('token', setToken)
+    localStorage.setItem('token', token)
   };
   getToken(): any {
-    let token = JSON.parse(localStorage.getItem('token') || '')
-    return token
+    return localStorage.getItem('token') || '';
   }
   isLoggedIn() {
     return this.getToken() != null;
@@ -24,16 +23,19 @@ export class AuthService {
     this.router.navigate(['login'])
   }
   login({ email, password }: any): Observable<any> {
-    if ( email =='atuny0@sohu.com' &&password=='12345678'){
-      this.setToken({id:1,role:'admin'});
-      return of( {name:'admin',email:'atuny0@sohu.com'})
+    if (email == 'admin@localhost' && password == '1234') {
+      this.setToken(tokens.admin);
+      return of({ name: 'admin', email: 'admin@localhost' })
     }
-    else if(email =='hbingley@ptala.or.jp' && password=='12345678'){
-       this.setToken({id:2,role:'user'});
-      return of( {name:'user',email:'hbingley@ptala.or.jp'})
+    else if (email == 'user@localhost' && password == '1234') {
+      this.setToken(tokens.user);
+      return of({ name: 'user', email: 'user@localhost' })
+    }
 
-    } {
-      return throwError(new Error('failed to login'))
-    }
-}
+    return throwError(new Error('failed to login'))
+
+  }
+  testing(a:string){
+    console.log('test',a)
+  }
 }

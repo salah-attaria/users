@@ -41,7 +41,7 @@ margin: 80px;
 .header{
     background-color:#0A6C97 ;
     color: #ffff;
-    width: 780px;
+    width: 800px;
     height: 40px;
     position: absolute;
     padding: 6px;
@@ -49,6 +49,9 @@ margin: 80px;
     border: 1px solid #0A6C97;
     border-radius: 3px;
     /* text-align: center; */
-    margin-left:1px;
+    /* margin-left:1px; */
     
+}
+.custom{
+width:800px
 }

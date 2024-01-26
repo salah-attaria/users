@@ -29,8 +29,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ViewComponent } from './view/view.component';
 import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
-import { ShowUsersComponent } from './show-users/show-users.component';
-
+// import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -39,7 +38,7 @@ import { ShowUsersComponent } from './show-users/show-users.component';
     ErrorComponent,
     LoginComponent,
     HeaderComponent,
-    GetUsersComponent, DeleteUserComponent, AddUserComponent, UpdateUserComponent, AddUserDialogComponent, ViewComponent, ShowUsersComponent
+    GetUsersComponent, DeleteUserComponent, AddUserComponent, UpdateUserComponent, AddUserDialogComponent, ViewComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +46,7 @@ import { ShowUsersComponent } from './show-users/show-users.component';
     NgbModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule,
     HttpClientModule, FormsModule,
     ReactiveFormsModule, MatRadioModule, MatIconModule, MatDividerModule, MatButtonModule, MatDialogModule, MatCardModule, MatCheckboxModule,
-    MatSelectModule, CommonModule,
+    MatSelectModule, CommonModule
 
   ],
   providers: [],
